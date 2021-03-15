@@ -100,9 +100,9 @@ firebase.auth().onAuthStateChanged(async function(user)
         }
 
         //THIS SHOWS USER INFO
-        document.querySelector('.userinfo').insertAdjacentHTML('beforeend',
-        `Hello ${user.displayName}! <br>
-        <button class="sign-out-button Montserrat-bold bg-tan text-bold text-storm px-4 py-2 rounded-xl">Sign-Out</button>`
+        document.querySelector('.userinfo').insertAdjacentHTML('beforeend', `
+        <div class="text-storm text-2xl text-bold uppercase"> ${user.displayName}'s Closet</div> <br>
+        <button class="sign-out-button bg-tan text-storm px-4 py-2 rounded-xl">Sign-Out</button>`
         )
 
         //THIS SHOWS FILTERS
@@ -234,24 +234,26 @@ firebase.auth().onAuthStateChanged(async function(user)
                     let productPrice = productData.price
                     let brand = productData.brand
                     let productID = productData.product_number
-                
-                document.querySelector('.products').insertAdjacentHTML('beforeend', `
-                <div class="product-grid">
-                <div class="product-${productID} p-4">
-                    <a href="${productURL}" target="popup" onclick="window.open('${productURL}','name','width=1400, height=1000')">
-                        <img src="${productImage}" class="product-image border-2 border-black">
-                    </a>
-                    <button class="buynow hidden">BUY NOW</button>
-                    <button class="btn hidden">👍</button>
-                    <button class="btn2 hidden">👎</button>
-                    <div class="mt-2 justify-center">
-                        <p class="text-center text-2xl text-bold text-black">${brand}</p>
-                    </div>
-                    <div class="text-black text-center text-l text-bold">${productName}</div>
-                    <div class="text-black text-center text-xl text-bold">${productPrice}</div>
-                </div>
-                </div>
-                `)
+                    // <div class="product-grid">
+                    document.querySelector('.products').insertAdjacentHTML('beforeend', `
+
+                    <div class=" product-grid product-${productID} p-4 md:w-1/4">
+                        <div class = "productImgContainer">
+                            <a href="${productURL}" target="popup" onclick="window.open('${productURL}','name','width=1400, height=1000')">
+                                <img src="${productImage}" class="product-image border-2 border-black">
+                            </a>
+                                    <button class="buynow hidden">BUY NOW</button>
+                                    <button class="btn hidden">👍</button>
+                                    <button class="btn2 hidden">👎</button>
+                        </div>
+                        <div class="mt-2 justify-center">
+    
+                            <p class="text-center text-2xl text-bold text-black">${brand}</p>
+                        </div>
+                        <div class="text-black text-center text-l text-bold">${productName}</div>
+                        <div class="text-black text-center text-xl text-bold">${productPrice}</div>
+                    </div>                
+                    `)
             document.querySelector(`.product-${productID}`).addEventListener('mouseover', function (event)
                     {
                         event.preventDefault()
@@ -315,24 +317,26 @@ firebase.auth().onAuthStateChanged(async function(user)
                     let productPrice = productData.price
                     let brand = productData.brand
                     let productID = productData.product_number
-                
-                document.querySelector('.products').insertAdjacentHTML('beforeend', `
-                <div class="product-grid">
-                <div class="product-${productID} p-4">
-                    <a href="${productURL}" target="popup" onclick="window.open('${productURL}','name','width=1400, height=1000')">
-                        <img src="${productImage}" class="product-image border-2 border-black">
-                    </a>
-                    <button class="buynow hidden">BUY NOW</button>
-                    <button class="btn hidden">👍</button>
-                    <button class="btn2 hidden">👎</button>
-                    <div class="mt-2 justify-center">
-                        <p class="text-center text-2xl text-bold text-black">${brand}</p>
-                    </div>
-                    <div class="text-black text-center text-l text-bold">${productName}</div>
-                    <div class="text-black text-center text-xl text-bold">${productPrice}</div>
-                </div> 
-                </div>
-                `)
+                    // <div class="product-grid">
+                    document.querySelector('.products').insertAdjacentHTML('beforeend', `
+
+                    <div class=" product-grid product-${productID} p-4 md:w-1/4">
+                        <div class = "productImgContainer">
+                            <a href="${productURL}" target="popup" onclick="window.open('${productURL}','name','width=1400, height=1000')">
+                                <img src="${productImage}" class="product-image border-2 border-black">
+                            </a>
+                                    <button class="buynow hidden">BUY NOW</button>
+                                    <button class="btn hidden">👍</button>
+                                    <button class="btn2 hidden">👎</button>
+                        </div>
+                        <div class="mt-2 justify-center">
+    
+                            <p class="text-center text-2xl text-bold text-black">${brand}</p>
+                        </div>
+                        <div class="text-black text-center text-l text-bold">${productName}</div>
+                        <div class="text-black text-center text-xl text-bold">${productPrice}</div>
+                    </div>                
+                    `)
             document.querySelector(`.product-${productID}`).addEventListener('mouseover', function (event)
                     {
                         event.preventDefault()
